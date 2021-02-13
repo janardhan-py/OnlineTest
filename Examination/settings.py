@@ -77,7 +77,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'Examination.wsgi.application'
-
+'''
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -85,6 +85,17 @@ DATABASES = {
         'USER': 'postgres',
         'PASSWORD': 'John@1998',
         'HOST': 'localhost',
+        'PORT': '5432',
+    }
+}
+'''
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd9qtgdehmg2qoi',
+        'USER': 'riyoeeehocilof',
+        'PASSWORD': 'd9f635b062971ecf755eb810d51c2d0b5f3676624e801440323ae18e91f9afee',
+        'HOST':'ec2-108-128-104-50.eu-west-1.compute.amazonaws.com',
         'PORT': '5432',
     }
 }
@@ -140,5 +151,4 @@ CORS_ALLOWED_ORIGINS = [
 CORS_ALLOWED_ORIGIN_REGEXES = [
     r"^https://\w+\.127.0.0.1:8000/Students",
 ]
-
 
