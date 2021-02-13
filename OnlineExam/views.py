@@ -39,7 +39,7 @@ def Student(request):
 
 
 def Rules(request):
-    return HttpResponse('student has 1 min for each question',)
+    return HttpResponse('student has 1 minute for each question',)
 
 
 def Home(request):
