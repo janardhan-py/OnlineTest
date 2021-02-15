@@ -1,1 +1,1 @@
-web: run this thing 
+web: gunicorn online-test3.wsgi
