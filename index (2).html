@@ -1,0 +1,31 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online test</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="header">
+        <center><h1 style="font-size: 4rem;	font-weight: 100;font-family: 'Times New Roman', Times, serif;margin-top: 0; width: fit-content;padding: 5px;">ONLINE TEST</h1></center>
+        <table id="timer" style="visibility: hidden; font-size: 1.5rem;">
+            <tr>
+                <td>Time left : </td>
+                <td><span id="quizTimer"></span></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><span id="score"></span></td>
+            </tr>
+        </table>
+    </div>
+    <div class="container">
+        <ul id="sidebar" style="visibility: hidden;"></ul>
+        <div class="quiz-container">
+            <h3 id="instr">INSTRUCTIONS</h3>
+            <section id="quiz"></section><br><hr style="background-color: black;">
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
