@@ -1,1 +1,1 @@
-web: gunicorn OnlineTest.wsgi
+web: gunicorn OnlineTest.wsgi:application --log-file - --log-level debug
