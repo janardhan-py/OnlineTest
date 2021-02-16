@@ -31,7 +31,8 @@ CORS_ORIGIN_ALLOW_ALL = True
 
 
 ALLOWED_HOSTS = [
-    "https://online-test3.herokuapp.com"
+    "https://online-test3.herokuapp.com",
+    '0.0.0.0'
 ]
 
 
