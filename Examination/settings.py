@@ -30,7 +30,9 @@ CORS_ORIGIN_ALLOW_ALL = DEBUG
 CORS_ORIGIN_ALLOW_ALL = True
 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "https://online-test3.herokuapp.com"
+]
 
 
 # Application definition
