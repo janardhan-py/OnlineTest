@@ -42,6 +42,6 @@ def Rules(request):
     return HttpResponse('student has 1 minute for each question',)
 
 
-def Home(request):
-    return render(request,'Home.html')
+def Index(request):
+    return render(request,'index.html')
 

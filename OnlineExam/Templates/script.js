@@ -113,6 +113,7 @@ function init() {
     startQuiz.addEventListener("click", function(){
         username = nameInput.value;
         if(username!="") {
+            document.getElementById("instr").style.display = "none";
             randomQuestions = rQuestions(questions);
             sidebar(randomQuestions);
             startquiz(randomQuestions);
@@ -166,6 +167,7 @@ function reset() {
 
 function startquiz(randomQuestions){
     timerTable.style.visibility = "visible";
+    document.getElementById('score').style.visibility = "hidden";
     quizDuration = questions.length * 60;
     startTimer();
     time();
@@ -202,7 +204,13 @@ function startTimer() {
 function time() {
     let s = quizDuration - quizSecondElapsed;
     function fmtMSS(s){
-        return(s-(s%=60))/60+(9<s?':':':0')+s
+        if(s<60) {
+            quizTimer.style.color = "red";
+            setInterval(function() {
+                quizTimer.style.visibility = (quizTimer.style.visibility == 'hidden' ? '' : 'hidden');
+            }, 1000);
+        }
+        return(s-(s%=60))/60+(9<s?':':':0')+s;
     }
     let content = fmtMSS(s);
     quizTimer.textContent = content;
@@ -236,10 +244,10 @@ function showQuestion(i, randomQuestions) {
         listchoice.setAttribute("style", "list-style-type:none");
         listchoice.textContent = j + 1 + ". " + randomQuestions[i].choices[j];
         if(randomQuestions[i].marked && randomQuestions[i].answer == randomQuestions[i].choices[j]){
-            listchoice.setAttribute("style", "background-color: green; color: white");
+            //listchoice.setAttribute("style", "background-color: green; color: white");
         }
-        if(randomQuestions[i].userAnswer == randomQuestions[i].choices[j] && randomQuestions[i].userAnswer != randomQuestions[i].answer){
-            listchoice.setAttribute("style", "background-color: red;");
+        if(randomQuestions[i].userAnswer == randomQuestions[i].choices[j]){
+            listchoice.setAttribute("style", "background-color: green; color: white");
         }
         choicebox.appendChild(listchoice);
     }
@@ -256,6 +264,7 @@ function showQuestion(i, randomQuestions) {
     }
     let next = document.createElement("button");
     next.setAttribute("id", "next");
+    
     if(i == randomQuestions.length - 1){
         next.textContent = "Submit";
     }else{
@@ -268,12 +277,9 @@ function showQuestion(i, randomQuestions) {
     })
     next.addEventListener("click", function(){
         currentQuestion++;
-        //start
-        // if(attempted == null) {
-        //     alert('in');
-        //     document.getElementById(currentQuestion.number).style.backgroundColor = "red";
-        // }
-        //end
+        if(!randomQuestions[i].marked) {
+            document.getElementById(randomQuestions[i].number).style.backgroundColor = "red";
+        }
         showQuestion(currentQuestion, randomQuestions);
     })
 }
@@ -290,11 +296,6 @@ function scoreAnswer(current) {
             }
             document.getElementById("score").textContent = score;
             current.correct = true;
-            // document.getElementById(current.number).style.backgroundColor = "green";
-            // document.getElementById(current.number).style.color = "white";
-        }
-        else{
-            //document.getElementById(current.number).style.backgroundColor = "red";
         }
         document.getElementById(current.number).style.backgroundColor = "green";
         document.getElementById(current.number).style.color = "white";
@@ -308,11 +309,8 @@ function showAnswer(current, selectedItem) {
     for(let i = 0; i < current.choices.length; i++){
         let questionid = "#questionNum-" + i;
         let questionrow = document.querySelector(questionid);
-        if(current.choices[i] == current.answer){
+        if(selectedItem == current.choices[i]){
             questionrow.setAttribute("style", "background-color: green; color: white");
-        }
-        else if(selectedItem == current.choices[i]){
-            questionrow.setAttribute("style", "background-color: red");
         }
     }
     setTimeout(function() {
@@ -325,6 +323,13 @@ function refresh() {
 }
 
 function endQuiz(){
+    if(confirm("Are you sure you want to submit?")) {
+        
+        console.log("Done!");
+    } else {
+        showQuestion(currentQuestion-1, randomQuestions);
+        return;
+    }
     stopTimer();
     clear();
     timerTable.style.visibility = "hidden";
@@ -335,7 +340,7 @@ function endQuiz(){
     heading.textContent = "Test Over!";
     let instructions = document.createElement("p");
     instructions.setAttribute("id", "instructions");
-    instructions.textContent = "Hey! " + username + " Your Score is " + score;
+    instructions.textContent = "Hey! " + username + " Your Score is " + (Math.round((score/600)*100)) + "%";
     quiz.appendChild(heading);
     quiz.appendChild(instructions);
 }

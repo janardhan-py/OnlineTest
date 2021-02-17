@@ -83,6 +83,7 @@ TEMPLATES = [
     },
 ]
 
+
 WSGI_APPLICATION = 'Examination.wsgi.application'
 '''
 DATABASES = {
