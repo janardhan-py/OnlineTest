@@ -6,7 +6,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from .Serializers import StudentSerializers, QuestionSerializers
 import OnlineExam.models as Online_exam
-
+from django.template import context,loader
 
 # Create your views here.
 
@@ -43,5 +43,7 @@ def Rules(request):
 
 
 def Index(request):
+    #template = loader.get_template("index.html")
+    #return HttpResponse(template.render())'''
     return render(request,'index.html')
 

@@ -20,7 +20,8 @@ class Question(models.Model):
     option2 = models.CharField(max_length=100)
     option3 = models.CharField(max_length=100)
     option4 = models.CharField(max_length=100)
-    Answer = models.CharField(max_length=50)
+    Answer = models.BooleanField(default=False)
+
 
     def __str__(self):
         return self.question
