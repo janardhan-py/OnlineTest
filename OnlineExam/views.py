@@ -44,6 +44,6 @@ def Rules(request):
 
 def Index(request):
     #template = loader.get_template("index.html")
-    #return HttpResponse(template.render())'''
+    #return HttpResponse(template.render())
     return render(request,'index.html')
 
