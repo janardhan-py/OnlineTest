@@ -75,6 +75,7 @@ TEMPLATES = [
         #'DIRS': [os.path.join(SETTINGS_PATH,'Templates')],
         'DIRS': [os.path.join(BASE_DIR,'Templates')],
         'APP_DIRS': True,
+
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -179,4 +180,3 @@ STATICFILES_DIRS = (
 
 #adding django heroku
 django_heroku.settings(locals())
-
