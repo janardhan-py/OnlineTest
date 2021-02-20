@@ -13,6 +13,12 @@ class Student(models.Model):
         return self.student_name
 
 
+class Answer(models.Model):
+
+
+    Answer = models.CharField(max_length=50)
+
+
 class Question(models.Model):
     objects = None
     question = models.CharField(max_length=1000)
@@ -25,7 +31,3 @@ class Question(models.Model):
 
     def __str__(self):
         return self.question
-
-
-class Answer(models.Model):
-    Answer = models.CharField(max_length=50)
