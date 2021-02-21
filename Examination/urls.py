@@ -18,6 +18,9 @@ from django.urls import path, include
 from django.conf.urls import url
 from rest_framework.urlpatterns import format_suffix_patterns
 from OnlineExam import views
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,4 +29,4 @@ urlpatterns = [
     url(r'^Students',views.StudentList.as_view()),
     url(r'^questions',views.QuestionList.as_view())
 
-]
+]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
