@@ -1,13 +1,13 @@
 from django.db import models
-
+#from . import Register_no
 # Create your models here.
 
 
 class Student(models.Model):
     objects = None
     student_name = models.CharField(max_length=32)
-    #Email = models.EmailField(max_length=100, unique=True)
-    Student_Reg_No = models.IntegerField(unique=True)
+    #mail = models.EmailField(max_length=100, unique=True)
+    Student_Reg_No = models.CharField(default="HC",unique=True,max_length=10)
 
     def __str__(self):
         return self.student_name
@@ -29,7 +29,5 @@ class Question(models.Model):
 
 
 class Answer(models.Model):
-
-
     Answer = models.CharField(max_length=50)
 

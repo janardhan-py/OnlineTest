@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
@@ -7,6 +8,7 @@ from rest_framework import status
 from .Serializers import StudentSerializers, QuestionSerializers
 import OnlineExam.models as Online_exam
 from django.template import context,loader
+from django.core.mail import send_mail
 
 # Create your views here.
 
@@ -47,3 +49,15 @@ def Index(request):
     #return HttpResponse(template.render())
     return render(request,'index.html')
 
+#to send mail response
+def mail(request):
+    sender = settings.EMAIL_HOST_USER
+    subject = "Greetings"
+    message = "Congratulations for your success"
+    to      = "janardhanajohn98@gmail.com"
+    res     = send_mail(subject, message, sender, [to],fail_silently=True)
+    if(res == 1):
+        msg = "Mail Sent Successfuly"
+    else:
+        msg = "Mail could not sent"
+    return HttpResponse(msg)

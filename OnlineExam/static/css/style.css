@@ -1,4 +1,4 @@
-{% load static %}
+{% load staticfiles %}
 body{
     user-select: none;
     font-family: sans-serif;
