@@ -1,5 +1,5 @@
 from django.conf import settings
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 from rest_framework.views import APIView
@@ -9,7 +9,7 @@ from .Serializers import StudentSerializers, QuestionSerializers
 import OnlineExam.models as Online_exam
 from django.template import context,loader
 from django.core.mail import send_mail
-
+from django.contrib.auth.models import User,auth
 # Create your views here.
 
 class StudentList(APIView):
@@ -37,7 +37,7 @@ class QuestionList(APIView):
 
 
 def Student(request):
-    return HttpResponse("<h1>welcome student <h1/>")
+    return render(request,'base.html')
 
 
 def Rules(request):
@@ -61,3 +61,31 @@ def mail(request):
     else:
         msg = "Mail could not sent"
     return HttpResponse(msg)
+
+#creating registration form
+
+
+def registration(request):
+    if request.method == 'POST':
+        first_name=request.POST("first name")
+        last_name = request.POST("last name")
+        email = request.POST("email")
+        password1 = request.POST("password")
+        password2 = request.POST("confirm password")
+
+
+        if password1==password2:
+
+            user= User.objects.create_user(first_name=first_name,last_name=last_name,email=email,password=password1)
+            user.save();
+            print("registration  successful")
+
+
+        else:
+            print("password not matched")
+            return redirect('/')
+
+    else:
+        print("registration unsuccessful")
+        return render(request,'Registration.html')
+

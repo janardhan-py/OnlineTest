@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration page</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <form action="resister" method="post">
+        {% csrf_token %}
+        <input type="text" name="first_name" placeholder="firstname"><br>
+        <input type="text" name="last_name" placeholder="last name"><br>
+        <input type="email" name="Email" placeholder="email id"><br>
+        <input type="password" name="password1" placeholder="password"><br>
+        <input type="password" name="password2" placeholder="confirm password"><br>
+        <input type="Submit">
+
+    </form>
+
+</body>
+</html>

@@ -1,269 +1,339 @@
-var questions = [
-    {
-        question : "The processes in project management have been classified into knowledge areas and",
-        choices : ["Methods", "Process Groups", "Categories", "Best practices"],
-        answer : ["Process Groups"],
-        marked : false,
-        correct : false,
-        multiAnswer : false,
-        flagState: false
-    },
-    {
-        question : "The application of knowledge, skills, tools and techniques to project activities to meet the project requirements is referred to as:",
-        choices : ["Project initiation", "Project coordination", "Project administration", "Project management"],
-        answer : ["Project management"],
-        marked : false,
-        correct : false,
-        multiAnswer : false,
-        flagState: false
-    },
-    {
-        question : "Which of the following is NOT an Enterprise Environmental Factor?",
-        choices : ["Organizational culture", "Political climate", "Performance measurement criteria", "Existing facilities and infrastructure"],
-        answer : ["Performance measurement criteria"],
-        marked : false,
-        correct : false,
-        multiAnswer : false,
-        flagState: false
-    },
-    {
-        question : "The person or organization that provides the funding or financial resources for the project is referred to as the:",
-        choices : ["Customer", "Sponsor", "Steering committee", "Project Management Office"],
-        answer : ["Sponsor"],
-        marked : false,
-        correct : false,
-        multiAnswer : false,
-        flagState: false
-    },{
-        question : "During the project lifecycle, stakeholder identification is expected to be:",
-        choices : ["A continuous and sometimes difficult process", "The responsibility of the project sponsor", "Completed prior to the approval of the project charter", "Focused only on stakeholders who will be impacted favorably as a result of the project"],
-        answer : ["A continuous and sometimes difficult process"],
-        marked : false,
-        correct : false,
-        multiAnswer : false,
-        flagState: false
-    },
-    {
-        question : "The end of a project phase is generally considered to be:",
-        choices : ["The formal authorization to begin the next project phase", "A natural point to assess project performance and determine if the project should continue", "The point in the project life cycle where risk is at its lowest level", "The point where formal control procedures of the project are generally enforced"],
-        answer : ["A natural point to assess project performance and determine if the project should continue"],
-        marked : false,
-        correct : false,
-        multiAnswer : false,
-        flagState: false
-    },{
-        question : "Which of the following statements about the project life cycle is false?",
-        choices : ["Cost and staffing are at the highest levels during the start of the project", "Risk is at the highest level of uncertainty at the start of the project", "The control needs of the organization will determine how many phases will be included in the project life cycle", "Project phases are typically completed sequentially but can be overlapped to accelerate completion of a project"],
-        answer : ["Cost and staffing are at the highest levels during the start of the project"],
-        marked : false,
-        correct : false,
-        multiAnswer : false,
-        flagState: false
-    },
-    {
-        question : "You are defining the project in more detail as you move through the phases of the project. You are engaged in:",
-        choices : ["Progressive elaboration", "Project selection", "Monitoring and Controlling", "Decomposition"],
-        answer : ["Progressive elaboration"],
-        marked : false,
-        correct : false,
-        multiAnswer : false,
-        flagState: false
-    },
-    {
-        question : "Which of the following is NOT generally considered a characteristic of a project?",
-        choices : ["Unique undertaking", "A temporary endeavor with specific starting and ending dates", "Ongoing and continually supporting organizational operations", "Completed when all objectives are achieved or terminated when the project objectives are no longer viable"],
-        answer : ["Ongoing and continually supporting organizational operations"],
-        marked : false,
-        correct : false,
-        multiAnswer : false,
-        flagState: false
-    },
-    {
-        question : "Your company is introducing a new product to be available in the first quarter of the next business cycle. The product will support an existing product as an add-on optional feature. Which of the following is true?",
-        choices : ["This is an ongoing operation because the previous product is already in use by customers", "This is a project because it involves a new product that has not been previously developed", "This is an operation because it adds a feature that will be part of an ongoing sales effort", "This is a program that supports the operations of the company"],
-        answer : ["This is a project because it involves a new product that has not been previously developed"],
-        marked : false,
-        correct : false,
-        multiAnswer : true,
-        flagState: false
-    },
-    {
-        question : "The processes in project management have been classified into knowledge areas and",
-        choices : ["Methods", "Process Groups", "Categories", "Best practices"],
-        answer : ["Process Groups"],
-        marked : false,
-        correct : false,
-        multiAnswer : false,
-        flagState: false
-    },
-    {
-        question : "The application of knowledge, skills, tools and techniques to project activities to meet the project requirements is referred to as:",
-        choices : ["Project initiation", "Project coordination", "Project administration", "Project management"],
-        answer : ["Project management"],
-        marked : false,
-        correct : false,
-        multiAnswer : false,
-        flagState: false
-    },
-    {
-        question : "Which of the following is NOT an Enterprise Environmental Factor?",
-        choices : ["Organizational culture", "Political climate", "Performance measurement criteria", "Existing facilities and infrastructure"],
-        answer : ["Performance measurement criteria"],
-        marked : false,
-        correct : false,
-        multiAnswer : false,
-        flagState: false
-    },
-    {
-        question : "The person or organization that provides the funding or financial resources for the project is referred to as the:",
-        choices : ["Customer", "Sponsor", "Steering committee", "Project Management Office"],
-        answer : ["Sponsor"],
-        marked : false,
-        correct : false,
-        multiAnswer : false,
-        flagState: false
-    },{
-        question : "During the project lifecycle, stakeholder identification is expected to be:",
-        choices : ["A continuous and sometimes difficult process", "The responsibility of the project sponsor", "Completed prior to the approval of the project charter", "Focused only on stakeholders who will be impacted favorably as a result of the project"],
-        answer : ["A continuous and sometimes difficult process"],
-        marked : false,
-        correct : false,
-        multiAnswer : false,
-        flagState: false
-    },
-    {
-        question : "The end of a project phase is generally considered to be:",
-        choices : ["The formal authorization to begin the next project phase", "A natural point to assess project performance and determine if the project should continue", "The point in the project life cycle where risk is at its lowest level", "The point where formal control procedures of the project are generally enforced"],
-        answer : ["A natural point to assess project performance and determine if the project should continue"],
-        marked : false,
-        correct : false,
-        multiAnswer : false,
-        flagState: false
-    },{
-        question : "Which of the following statements about the project life cycle is false?",
-        choices : ["Cost and staffing are at the highest levels during the start of the project", "Risk is at the highest level of uncertainty at the start of the project", "The control needs of the organization will determine how many phases will be included in the project life cycle", "Project phases are typically completed sequentially but can be overlapped to accelerate completion of a project"],
-        answer : ["Cost and staffing are at the highest levels during the start of the project"],
-        marked : false,
-        correct : false,
-        multiAnswer : false,
-        flagState: false
-    },
-    {
-        question : "You are defining the project in more detail as you move through the phases of the project. You are engaged in:",
-        choices : ["Progressive elaboration", "Project selection", "Monitoring and Controlling", "Decomposition"],
-        answer : ["Progressive elaboration"],
-        marked : false,
-        correct : false,
-        multiAnswer : false,
-        flagState: false
-    },
-    {
-        question : "Which of the following is NOT generally considered a characteristic of a project?",
-        choices : ["Unique undertaking", "A temporary endeavor with specific starting and ending dates", "Ongoing and continually supporting organizational operations", "Completed when all objectives are achieved or terminated when the project objectives are no longer viable"],
-        answer : ["Ongoing and continually supporting organizational operations"],
-        marked : false,
-        correct : false,
-        multiAnswer : false,
-        flagState: false
-    },
-    {
-        question : "Your company is introducing a new product to be available in the first quarter of the next business cycle. The product will support an existing product as an add-on optional feature. Which of the following is true?",
-        choices : ["This is an ongoing operation because the previous product is already in use by customers", "This is a project because it involves a new product that has not been previously developed", "This is an operation because it adds a feature that will be part of an ongoing sales effort", "This is a program that supports the operations of the company"],
-        answer : ["This is a project because it involves a new product that has not been previously developed"],
-        marked : false,
-        correct : false,
-        multiAnswer : true,
-        flagState: false
-    },
-    {
-        question : "The processes in project management have been classified into knowledge areas and",
-        choices : ["Methods", "Process Groups", "Categories", "Best practices"],
-        answer : ["Process Groups"],
-        marked : false,
-        correct : false,
-        multiAnswer : false,
-        flagState: false
-    },
-    {
-        question : "The application of knowledge, skills, tools and techniques to project activities to meet the project requirements is referred to as:",
-        choices : ["Project initiation", "Project coordination", "Project administration", "Project management"],
-        answer : ["Project management"],
-        marked : false,
-        correct : false,
-        multiAnswer : false,
-        flagState: false
-    },
-    {
-        question : "Which of the following is NOT an Enterprise Environmental Factor?",
-        choices : ["Organizational culture", "Political climate", "Performance measurement criteria", "Existing facilities and infrastructure"],
-        answer : ["Performance measurement criteria"],
-        marked : false,
-        correct : false,
-        multiAnswer : false,
-        flagState: false
-    },
-    {
-        question : "The person or organization that provides the funding or financial resources for the project is referred to as the:",
-        choices : ["Customer", "Sponsor", "Steering committee", "Project Management Office"],
-        answer : ["Sponsor"],
-        marked : false,
-        correct : false,
-        multiAnswer : false,
-        flagState: false
-    },{
-        question : "During the project lifecycle, stakeholder identification is expected to be:",
-        choices : ["A continuous and sometimes difficult process", "The responsibility of the project sponsor", "Completed prior to the approval of the project charter", "Focused only on stakeholders who will be impacted favorably as a result of the project"],
-        answer : ["A continuous and sometimes difficult process"],
-        marked : false,
-        correct : false,
-        multiAnswer : false,
-        flagState: false
-    },
-    {
-        question : "The end of a project phase is generally considered to be:",
-        choices : ["The formal authorization to begin the next project phase", "A natural point to assess project performance and determine if the project should continue", "The point in the project life cycle where risk is at its lowest level", "The point where formal control procedures of the project are generally enforced"],
-        answer : ["A natural point to assess project performance and determine if the project should continue"],
-        marked : false,
-        correct : false,
-        multiAnswer : false,
-        flagState: false
-    },{
-        question : "Which of the following statements about the project life cycle is false?",
-        choices : ["Cost and staffing are at the highest levels during the start of the project", "Risk is at the highest level of uncertainty at the start of the project", "The control needs of the organization will determine how many phases will be included in the project life cycle", "Project phases are typically completed sequentially but can be overlapped to accelerate completion of a project"],
-        answer : ["Cost and staffing are at the highest levels during the start of the project"],
-        marked : false,
-        correct : false,
-        multiAnswer : false,
-        flagState: false
-    },
-    {
-        question : "You are defining the project in more detail as you move through the phases of the project. You are engaged in:",
-        choices : ["Progressive elaboration", "Project selection", "Monitoring and Controlling", "Decomposition"],
-        answer : ["Progressive elaboration"],
-        marked : false,
-        correct : false,
-        multiAnswer : false,
-        flagState: false
-    },
-    {
-        question : "Which of the following is NOT generally considered a characteristic of a project?",
-        choices : ["Unique undertaking", "A temporary endeavor with specific starting and ending dates", "Ongoing and continually supporting organizational operations", "Completed when all objectives are achieved or terminated when the project objectives are no longer viable"],
-        answer : ["Ongoing and continually supporting organizational operations"],
-        marked : false,
-        correct : false,
-        multiAnswer : false,
-        flagState: false
-    },
-    {
-        question : "Your company is introducing a new product to be available in the first quarter of the next business cycle. The product will support an existing product as an add-on optional feature. Which of the following is true?",
-        choices : ["This is an ongoing operation because the previous product is already in use by customers", "This is a project because it involves a new product that has not been previously developed", "This is an operation because it adds a feature that will be part of an ongoing sales effort", "This is a program that supports the operations of the company"],
-        answer : ["This is a project because it involves a new product that has not been previously developed"],
-        marked : false,
-        correct : false,
-        multiAnswer : true,
-        flagState: false
-    },
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online test</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body oncopy="return false" onpopstate="return false" >
+
     
+
+    <div class="header">
+        <center><h1 id='onlineTest' style="font-size: 3rem;	font-weight: 200;margin-top: 0; width: fit-content;padding: 5px;">ONLINE TEST</h1></center>
+        <table id="status" class='statusBox' style="visibility: hidden; font-size: 18px;">
+            <tr>
+                <div id='attemptedIcon' class='icons'></div>
+                <td class='statusPanel' id='att'>ATTEMPTED </td>
+                <td><span id='attempted'></span></td>
+            </tr>
+            <tr>
+                <div id='unattemptedIcon' class='icons'></div>
+                <td class='statusPanel' id='unatt'>UNATTEMPTED </td>
+                <td><span id="unattempted"></span></td>
+            </tr>
+            <tr>
+                <div id='flaggedIcon' class='icons'></div>
+                <td class='statusPanel' id='flgd'>MARK FOR REVIEW </td>
+                <td><span id="flagged"></span></td>
+            </tr>
+        </table>
+        <table id="timer" style="visibility: hidden; font-size: 1.5rem;">
+            <tr>
+                <td>Time left : </td>
+                <td><span id="quizTimer"></span></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><span id="score"></span></td>
+            </tr>
+        </table>
+    </div>
+    {% load static %}
+    <div id='logo' width='200px' height='200px'>
+        <img src="{% static 'images/logo.jpg' %}" alt='logo'>
+    </div>
+
+    <div class="container" id='questionContainer'>
+        <ul id="sidebar" style="visibility: hidden;"></ul>
+        
+        <div class="quiz-container" id='questionBox'>
+            <h3 id="instr" style="text-align: center; font-weight: lighter;">PLEASE READ THE INSTRUCTIONS CAREFULLY</h3>
+            <div id="instructions">
+                <ol>
+                    <li>You will have 30 minutes to complete the test.</li>
+                    <li>The countdown timer in the top right corner will display the time remaining to complete the test. When the timer reaches zero, your test will end automatically.</li>
+                    <li>Enter your email id and click on the ‘’start’’ button to start the test.</li>
+                    <li>Once you select an answer click Next button to proceed to the following question.</li>
+                    <li>Hit the Mark for Review & Next button option if you’re unsure about a solution and want to review the answer later.</li>
+                    <li>Click on the ‘’submit’’ button when you are done with your test.</li>
+    
+                </ol>
+            </div>
+            <section id="quiz"></section><br><hr id='hr' style="background-color: black;">
+        </div>
+    </div>
+    {% load static %}
+    <script type="text/javascript">
+
+        var questions = [
+    {
+        question : "The processes in project management have been classified into knowledge areas and",
+        choices : ["Methods", "Process Groups", "Categories", "Best practices"],
+        answer : ["Process Groups"],
+        marked : false,
+        correct : false,
+        multiAnswer : false,
+        flagState: false
+    },
+    {
+        question : "The application of knowledge, skills, tools and techniques to project activities to meet the project requirements is referred to as:",
+        choices : ["Project initiation", "Project coordination", "Project administration", "Project management"],
+        answer : ["Project management"],
+        marked : false,
+        correct : false,
+        multiAnswer : false,
+        flagState: false
+    },
+    {
+        question : "Which of the following is NOT an Enterprise Environmental Factor?",
+        choices : ["Organizational culture", "Political climate", "Performance measurement criteria", "Existing facilities and infrastructure"],
+        answer : ["Performance measurement criteria"],
+        marked : false,
+        correct : false,
+        multiAnswer : false,
+        flagState: false
+    },
+    {
+        question : "The person or organization that provides the funding or financial resources for the project is referred to as the:",
+        choices : ["Customer", "Sponsor", "Steering committee", "Project Management Office"],
+        answer : ["Sponsor"],
+        marked : false,
+        correct : false,
+        multiAnswer : false,
+        flagState: false
+    },{
+        question : "During the project lifecycle, stakeholder identification is expected to be:",
+        choices : ["A continuous and sometimes difficult process", "The responsibility of the project sponsor", "Completed prior to the approval of the project charter", "Focused only on stakeholders who will be impacted favorably as a result of the project"],
+        answer : ["A continuous and sometimes difficult process"],
+        marked : false,
+        correct : false,
+        multiAnswer : false,
+        flagState: false
+    },
+    {
+        question : "The end of a project phase is generally considered to be:",
+        choices : ["The formal authorization to begin the next project phase", "A natural point to assess project performance and determine if the project should continue", "The point in the project life cycle where risk is at its lowest level", "The point where formal control procedures of the project are generally enforced"],
+        answer : ["A natural point to assess project performance and determine if the project should continue"],
+        marked : false,
+        correct : false,
+        multiAnswer : false,
+        flagState: false
+    },{
+        question : "Which of the following statements about the project life cycle is false?",
+        choices : ["Cost and staffing are at the highest levels during the start of the project", "Risk is at the highest level of uncertainty at the start of the project", "The control needs of the organization will determine how many phases will be included in the project life cycle", "Project phases are typically completed sequentially but can be overlapped to accelerate completion of a project"],
+        answer : ["Cost and staffing are at the highest levels during the start of the project"],
+        marked : false,
+        correct : false,
+        multiAnswer : false,
+        flagState: false
+    },
+    {
+        question : "You are defining the project in more detail as you move through the phases of the project. You are engaged in:",
+        choices : ["Progressive elaboration", "Project selection", "Monitoring and Controlling", "Decomposition"],
+        answer : ["Progressive elaboration"],
+        marked : false,
+        correct : false,
+        multiAnswer : false,
+        flagState: false
+    },
+    {
+        question : "Which of the following is NOT generally considered a characteristic of a project?",
+        choices : ["Unique undertaking", "A temporary endeavor with specific starting and ending dates", "Ongoing and continually supporting organizational operations", "Completed when all objectives are achieved or terminated when the project objectives are no longer viable"],
+        answer : ["Ongoing and continually supporting organizational operations"],
+        marked : false,
+        correct : false,
+        multiAnswer : false,
+        flagState: false
+    },
+    {
+        question : "Your company is introducing a new product to be available in the first quarter of the next business cycle. The product will support an existing product as an add-on optional feature. Which of the following is true?",
+        choices : ["This is an ongoing operation because the previous product is already in use by customers", "This is a project because it involves a new product that has not been previously developed", "This is an operation because it adds a feature that will be part of an ongoing sales effort", "This is a program that supports the operations of the company"],
+        answer : ["This is a project because it involves a new product that has not been previously developed"],
+        marked : false,
+        correct : false,
+        multiAnswer : true,
+        flagState: false
+    },
+    {
+        question : "The processes in project management have been classified into knowledge areas and",
+        choices : ["Methods", "Process Groups", "Categories", "Best practices"],
+        answer : ["Process Groups"],
+        marked : false,
+        correct : false,
+        multiAnswer : false,
+        flagState: false
+    },
+    {
+        question : "The application of knowledge, skills, tools and techniques to project activities to meet the project requirements is referred to as:",
+        choices : ["Project initiation", "Project coordination", "Project administration", "Project management"],
+        answer : ["Project management"],
+        marked : false,
+        correct : false,
+        multiAnswer : false,
+        flagState: false
+    },
+    {
+        question : "Which of the following is NOT an Enterprise Environmental Factor?",
+        choices : ["Organizational culture", "Political climate", "Performance measurement criteria", "Existing facilities and infrastructure"],
+        answer : ["Performance measurement criteria"],
+        marked : false,
+        correct : false,
+        multiAnswer : false,
+        flagState: false
+    },
+    {
+        question : "The person or organization that provides the funding or financial resources for the project is referred to as the:",
+        choices : ["Customer", "Sponsor", "Steering committee", "Project Management Office"],
+        answer : ["Sponsor"],
+        marked : false,
+        correct : false,
+        multiAnswer : false,
+        flagState: false
+    },{
+        question : "During the project lifecycle, stakeholder identification is expected to be:",
+        choices : ["A continuous and sometimes difficult process", "The responsibility of the project sponsor", "Completed prior to the approval of the project charter", "Focused only on stakeholders who will be impacted favorably as a result of the project"],
+        answer : ["A continuous and sometimes difficult process"],
+        marked : false,
+        correct : false,
+        multiAnswer : false,
+        flagState: false
+    },
+    {
+        question : "The end of a project phase is generally considered to be:",
+        choices : ["The formal authorization to begin the next project phase", "A natural point to assess project performance and determine if the project should continue", "The point in the project life cycle where risk is at its lowest level", "The point where formal control procedures of the project are generally enforced"],
+        answer : ["A natural point to assess project performance and determine if the project should continue"],
+        marked : false,
+        correct : false,
+        multiAnswer : false,
+        flagState: false
+    },{
+        question : "Which of the following statements about the project life cycle is false?",
+        choices : ["Cost and staffing are at the highest levels during the start of the project", "Risk is at the highest level of uncertainty at the start of the project", "The control needs of the organization will determine how many phases will be included in the project life cycle", "Project phases are typically completed sequentially but can be overlapped to accelerate completion of a project"],
+        answer : ["Cost and staffing are at the highest levels during the start of the project"],
+        marked : false,
+        correct : false,
+        multiAnswer : false,
+        flagState: false
+    },
+    {
+        question : "You are defining the project in more detail as you move through the phases of the project. You are engaged in:",
+        choices : ["Progressive elaboration", "Project selection", "Monitoring and Controlling", "Decomposition"],
+        answer : ["Progressive elaboration"],
+        marked : false,
+        correct : false,
+        multiAnswer : false,
+        flagState: false
+    },
+    {
+        question : "Which of the following is NOT generally considered a characteristic of a project?",
+        choices : ["Unique undertaking", "A temporary endeavor with specific starting and ending dates", "Ongoing and continually supporting organizational operations", "Completed when all objectives are achieved or terminated when the project objectives are no longer viable"],
+        answer : ["Ongoing and continually supporting organizational operations"],
+        marked : false,
+        correct : false,
+        multiAnswer : false,
+        flagState: false
+    },
+    {
+        question : "Your company is introducing a new product to be available in the first quarter of the next business cycle. The product will support an existing product as an add-on optional feature. Which of the following is true?",
+        choices : ["This is an ongoing operation because the previous product is already in use by customers", "This is a project because it involves a new product that has not been previously developed", "This is an operation because it adds a feature that will be part of an ongoing sales effort", "This is a program that supports the operations of the company"],
+        answer : ["This is a project because it involves a new product that has not been previously developed"],
+        marked : false,
+        correct : false,
+        multiAnswer : true,
+        flagState: false
+    },
+    {
+        question : "The processes in project management have been classified into knowledge areas and",
+        choices : ["Methods", "Process Groups", "Categories", "Best practices"],
+        answer : ["Process Groups"],
+        marked : false,
+        correct : false,
+        multiAnswer : false,
+        flagState: false
+    },
+    {
+        question : "The application of knowledge, skills, tools and techniques to project activities to meet the project requirements is referred to as:",
+        choices : ["Project initiation", "Project coordination", "Project administration", "Project management"],
+        answer : ["Project management"],
+        marked : false,
+        correct : false,
+        multiAnswer : false,
+        flagState: false
+    },
+    {
+        question : "Which of the following is NOT an Enterprise Environmental Factor?",
+        choices : ["Organizational culture", "Political climate", "Performance measurement criteria", "Existing facilities and infrastructure"],
+        answer : ["Performance measurement criteria"],
+        marked : false,
+        correct : false,
+        multiAnswer : false,
+        flagState: false
+    },
+    {
+        question : "The person or organization that provides the funding or financial resources for the project is referred to as the:",
+        choices : ["Customer", "Sponsor", "Steering committee", "Project Management Office"],
+        answer : ["Sponsor"],
+        marked : false,
+        correct : false,
+        multiAnswer : false,
+        flagState: false
+    },{
+        question : "During the project lifecycle, stakeholder identification is expected to be:",
+        choices : ["A continuous and sometimes difficult process", "The responsibility of the project sponsor", "Completed prior to the approval of the project charter", "Focused only on stakeholders who will be impacted favorably as a result of the project"],
+        answer : ["A continuous and sometimes difficult process"],
+        marked : false,
+        correct : false,
+        multiAnswer : false,
+        flagState: false
+    },
+    {
+        question : "The end of a project phase is generally considered to be:",
+        choices : ["The formal authorization to begin the next project phase", "A natural point to assess project performance and determine if the project should continue", "The point in the project life cycle where risk is at its lowest level", "The point where formal control procedures of the project are generally enforced"],
+        answer : ["A natural point to assess project performance and determine if the project should continue"],
+        marked : false,
+        correct : false,
+        multiAnswer : false,
+        flagState: false
+    },{
+        question : "Which of the following statements about the project life cycle is false?",
+        choices : ["Cost and staffing are at the highest levels during the start of the project", "Risk is at the highest level of uncertainty at the start of the project", "The control needs of the organization will determine how many phases will be included in the project life cycle", "Project phases are typically completed sequentially but can be overlapped to accelerate completion of a project"],
+        answer : ["Cost and staffing are at the highest levels during the start of the project"],
+        marked : false,
+        correct : false,
+        multiAnswer : false,
+        flagState: false
+    },
+    {
+        question : "You are defining the project in more detail as you move through the phases of the project. You are engaged in:",
+        choices : ["Progressive elaboration", "Project selection", "Monitoring and Controlling", "Decomposition"],
+        answer : ["Progressive elaboration"],
+        marked : false,
+        correct : false,
+        multiAnswer : false,
+        flagState: false
+    },
+    {
+        question : "Which of the following is NOT generally considered a characteristic of a project?",
+        choices : ["Unique undertaking", "A temporary endeavor with specific starting and ending dates", "Ongoing and continually supporting organizational operations", "Completed when all objectives are achieved or terminated when the project objectives are no longer viable"],
+        answer : ["Ongoing and continually supporting organizational operations"],
+        marked : false,
+        correct : false,
+        multiAnswer : false,
+        flagState: false
+    },
+    {
+        question : "Your company is introducing a new product to be available in the first quarter of the next business cycle. The product will support an existing product as an add-on optional feature. Which of the following is true?",
+        choices : ["This is an ongoing operation because the previous product is already in use by customers", "This is a project because it involves a new product that has not been previously developed", "This is an operation because it adds a feature that will be part of an ongoing sales effort", "This is a program that supports the operations of the company"],
+        answer : ["This is a project because it involves a new product that has not been previously developed"],
+        marked : false,
+        correct : false,
+        multiAnswer : true,
+        flagState: false
+    },
+
 
     //test questions
 ];
@@ -289,7 +359,7 @@ function init() {
     document.getElementById('attemptedIcon').style.visibility = "hidden";
     document.getElementById('unattemptedIcon').style.visibility = "hidden";
     document.getElementById('flaggedIcon').style.visibility = "hidden";
-    
+
     let nameLabel = document.createElement("label");
     nameLabel.setAttribute("for", "name");
     nameLabel.setAttribute("id", "name");
@@ -316,7 +386,7 @@ function init() {
             randomQuestions = rQuestions(questions);
             sidebar(randomQuestions);
             startquiz(randomQuestions);
-            
+
         }
     })
 }
@@ -456,7 +526,7 @@ function showQuestion(i, randomQuestions) {
 
         let option = document.createElement("p");
         option.setAttribute("class", "choices");
-        
+
         let checkBox = document.createElement('INPUT');
         checkBox.setAttribute("type", "checkbox");
         checkBox.setAttribute("class", "checkBox");
@@ -485,7 +555,7 @@ function showQuestion(i, randomQuestions) {
                     checkBox.setAttribute("checked", "true");
                 }
             }
-        }   
+        }
         //choicebox.appendChild(label);
         choicebox.appendChild(option);
 
@@ -500,8 +570,8 @@ function showQuestion(i, randomQuestions) {
     let previous = document.createElement("button");
     previous.setAttribute("id", "previous");
     previous.textContent = "Previous";
-    
-    
+
+
     quiz.appendChild(previous);
     if(i == 0){
         previous.style.visibility = "hidden";
@@ -510,12 +580,12 @@ function showQuestion(i, randomQuestions) {
     let flag = document.createElement("button");
     flag.setAttribute("id", "flag");
     flag.textContent = "Mark for Review";
-    
+
     quiz.appendChild(flag);
 
     let next = document.createElement("button");
     next.setAttribute("id", "next");
-    
+
     if(i == randomQuestions.length - 1){
         next.textContent = "Submit";
     }else{
@@ -551,7 +621,7 @@ function showQuestion(i, randomQuestions) {
             }
             this.textContent = 'Mark for review';
             if(!randomQuestions[i].marked) {
-                // document.getElementById(randomQuestions[i].number).style.backgroundColor = "#51adcf"; 
+                // document.getElementById(randomQuestions[i].number).style.backgroundColor = "#51adcf";
                 //initial question panel colot
                 document.getElementById(randomQuestions[i].number).style.backgroundColor = "#e0e6e0";
             } else {
@@ -565,7 +635,7 @@ function showQuestion(i, randomQuestions) {
         document.getElementById('flagged').textContent = flagged;
         document.getElementById('attempted').textContent = attempted;
         document.getElementById('unattempted').textContent = questions.length - attempted - flagged;
-        
+
         //mark for review
         // document.getElementById(randomQuestions[i].number).style.backgroundColor = "orange";
 
@@ -651,7 +721,7 @@ function scoreAnswer(current) {
                     selectedItems.push(e.textContent.slice(0));
                     current.userAnswer.push(e.textContent.slice(0));
                 }
-            }                
+            }
 
         } else {
 
@@ -667,7 +737,7 @@ function scoreAnswer(current) {
                 if(!(('checkBox-' + x) == selectedId)) {
                     document.querySelector('#checkBox-' + x).checked = false;
                 }
-            } 
+            }
         }
 
         //added scoring code from here
@@ -691,7 +761,7 @@ function scoreAnswer(current) {
                     if(!(sort1[x] == sort2[x])) {
                         equal = false;
                     }
-                } 
+                }
 
                 if(equal) {
                     score++;
@@ -706,7 +776,7 @@ function scoreAnswer(current) {
 
         }
         //to here
-        
+
         // for(let x = 0; x<selectedItems.length; x++) {
         //     if(!current.multiAnswer) {
         //         if(selectedItems[x] == current.answer[0]){
@@ -726,11 +796,11 @@ function scoreAnswer(current) {
         //                         score++;
         //                         document.getElementById("score").textContent = score;
         //                         current.correct = true;
-        //                     }    
-        //                 }    
+        //                     }
+        //                 }
         //             }
         //         }
-        //     }      
+        //     }
         // }
 
         if((current.userAnswer.length>0) && !(current.marked)) {
@@ -749,37 +819,37 @@ function scoreAnswer(current) {
             if(!current.marked) {
                 //initial question panel color
                 document.getElementById(current.number).style.backgroundColor = "#e0e6e0";
-                document.getElementById(current.number).style.color = "black";    
+                document.getElementById(current.number).style.color = "black";
             } else if(current.marked) {
                 document.getElementById(current.number).style.backgroundColor = "#088a85";
                 document.getElementById(current.number).style.color = "white";
             }
         }
- 
+
         showAnswer(current, selectedItems);
     }
 }
 
 function showAnswer(current, selectedItems) {
     for(let i = 0; i < current.choices.length; i++){
-        
+
         let questionid = "#questionNum-" + i;
         let questionrow = document.querySelector(questionid);
         if(selectedItems.length>0) {
             let absent = true;
             for(x=selectedItems.length-1; x>=0; x--) {
-                
+
                 if(!current.multiAnswer){
                     if(selectedItems[0] == current.choices[i]){
                         //questionrow.setAttribute("style", "background-color: #088a85; color: white");
                     } else {
                         //questionrow.setAttribute("style", "background-color: white;");
-                    }              
+                    }
                 }else {
                     if(selectedItems[x] == current.choices[i]){
                         //questionrow.setAttribute("style", "background-color: #088a85; color: white");
                         absent = false;
-                    } 
+                    }
                 }
             }
             if(absent && current.multiAnswer) {
@@ -788,8 +858,8 @@ function showAnswer(current, selectedItems) {
         } else {
             //questionrow.setAttribute("style", "background-color: white;");
         }
-                
-    }        
+
+    }
 }
 
 function refresh() {
@@ -804,10 +874,10 @@ function endTest() {
     document.getElementById('yesButton').style.display = 'none';
     document.getElementById('noButton').style.display = 'none';
     document.getElementById('confMsg').style.display = 'none';
-    
+
     stopTimer();
     clear();
-    
+
     timerTable.style.visibility = "hidden";
     document.getElementById('status').style.visibility = "hidden";
 
@@ -855,7 +925,7 @@ function endQuiz(){
     document.getElementById('unattemptedIcon').style.visibility = "hidden";
     document.getElementById('flaggedIcon').style.visibility = "hidden";
 
-    
+
 
     if(!(quizDuration - quizSecondElapsed) < 1) {
         // if(confirm("Are you sure you want to submit?")) {
@@ -895,7 +965,7 @@ function endQuiz(){
         document.getElementById('confMsg').style.display = 'block';
 
     } else {
-        
+
         stopTimer();
         clear();
 
@@ -905,7 +975,7 @@ function endQuiz(){
         document.getElementById('attemptedIcon').style.visibility = "hidden";
         document.getElementById('unattemptedIcon').style.visibility = "hidden";
         document.getElementById('flaggedIcon').style.visibility = "hidden";
-        
+
         timerTable.style.visibility = "hidden";
         document.getElementById('status').style.visibility = "hidden";
         var sidebar = document.getElementById("sidebar");
@@ -924,11 +994,11 @@ function endQuiz(){
         document.getElementById('confMsg').style.display = 'none';
     }
 
-    
-        
+
+
     // stopTimer();
     // clear();
-    
+
     // timerTable.style.visibility = "hidden";
     // document.getElementById('status').style.visibility = "hidden";
     // var sidebar = document.getElementById("sidebar");
@@ -949,3 +1019,6 @@ function stopTimer() {
 }
 
 init();
+    </script>
+</body>
+</html>

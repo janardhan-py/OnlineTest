@@ -29,4 +29,4 @@ urlpatterns = [
     url(r'^students',views.StudentList.as_view()),
     url(r'^questions',views.QuestionList.as_view())
 
-]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+]
