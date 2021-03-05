@@ -1,28 +1,71 @@
+from typing import Any
+
 from django.conf import settings
-from django.shortcuts import render,redirect
-from django.http import HttpResponse
+from django.shortcuts import render, redirect
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import get_object_or_404
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
+from rest_framework.parsers import JSONParser
 from .Serializers import StudentSerializers, QuestionSerializers
 import OnlineExam.models as Online_exam
 from django.template import context,loader
 from django.core.mail import send_mail
 from django.contrib.auth.models import User,auth
+from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
+
 
 class StudentList(APIView):
     #To get data
     def get(self,request):
 
         Students = Online_exam.Student.objects.all()
-        Serializer = StudentSerializers(Students, many=True)
+        serializer = StudentSerializers(Students, many=True)
         # to return json format
-        return Response(Serializer.data)
+        return Response(serializer.data)
 
-    def post(self):
-        pass
+    @csrf_exempt
+    def post(self,request):
+        if request.method == 'POST':
+            print(request.data)
+            data = JSONParser().parse(request)
+            serializer = StudentSerializers(data=data)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+'''
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data,status=status.HTTP_201_CREATED)
+        return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)'''
+
+#craeting Api class to get, update and delete the code
+
+
+class StudentDetails(APIView):
+    def get_object(self, id):
+        try:
+            return Online_exam.Student.objects.all(id=id)
+        except Student.DoesNotExist:
+            return HttpResponse(status=status.HTTP_400_BAD_REQUEST)
+
+    def get(self, request, id):
+        Students = self.get_object(id)
+        serializer = StudentSerializers(Students)
+        return Response(serializer.data)
+
+    def put(self, request, id):
+        Students = self.get_object(id)
+        serializer = StudentSerializers(Students,data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return HttpResponse(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, id):
+        Students=self.get_object(id)
+        Students.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
 
 class QuestionList(APIView):
@@ -37,11 +80,11 @@ class QuestionList(APIView):
 
 
 def Student(request):
+    request.POST.get('username', '')
     return render(request,'base.html')
 
 
-def Rules(request):
-    return HttpResponse('student has 1 minute for each question',)
+
 
 
 def Index(request):

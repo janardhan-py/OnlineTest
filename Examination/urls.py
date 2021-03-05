@@ -27,6 +27,7 @@ urlpatterns = [
     path('',include('OnlineExam.urls')),
     # TO work with Url
     url(r'^students',views.StudentList.as_view()),
-    url(r'^questions',views.QuestionList.as_view())
+    url(r'^questions',views.QuestionList.as_view()),
+    url(r'detail',views.StudentDetails.as_view())
 
 ]

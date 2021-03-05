@@ -11,7 +11,7 @@ class StudentSerializers(serializers.ModelSerializer):
         # to print all
         fields = '__all__'
         # To print particular one
-        # fields = 'student_name'
+        # fields = ['student_name','Student_Reg_No']
 
 
 class QuestionSerializers(serializers.ModelSerializer):
