@@ -28,6 +28,7 @@ urlpatterns = [
     # TO work with Url
     url(r'^students',views.StudentList.as_view()),
     url(r'^questions',views.QuestionList.as_view()),
-    url(r'detail',views.StudentDetails.as_view())
+    url(r'^students/<int:pk>',views.StudentDetails.as_view())
 
 ]
+urlpatterns = format_suffix_patterns(urlpatterns)

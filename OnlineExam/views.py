@@ -14,12 +14,13 @@ from django.template import context,loader
 from django.core.mail import send_mail
 from django.contrib.auth.models import User,auth
 from django.views.decorators.csrf import csrf_exempt
+from django.core.exceptions import ObjectDoesNotExist
 # Create your views here.
 
 
 class StudentList(APIView):
     #To get data
-    def get(self,request):
+    def get(self,request,format=None):
 
         Students = Online_exam.Student.objects.all()
         serializer = StudentSerializers(Students, many=True)
@@ -27,43 +28,44 @@ class StudentList(APIView):
         return Response(serializer.data)
 
     @csrf_exempt
-    def post(self,request):
+    def post(self,request,format=None):
         if request.method == 'POST':
             print(request.data)
-            data = JSONParser().parse(request)
-            serializer = StudentSerializers(data=data)
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-'''
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data,status=status.HTTP_201_CREATED)
-        return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)'''
+            #data = JSONParser().parse(request)
+            serializer = StudentSerializers(data=request.data)
+            #return Response(serializer.data, status=status.HTTP_201_CREATED)
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data,status=status.HTTP_201_CREATED)
+            return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
 
-#craeting Api class to get, update and delete the code
+#craeting Api class to get, update and delete the data
 
 
 class StudentDetails(APIView):
-    def get_object(self, id):
+    def get_object(self, pk):
         try:
-            return Online_exam.Student.objects.all(id=id)
-        except Student.DoesNotExist:
+            return Online_exam.Student.objects.all(pk=pk)
+        except ObjectDoesNotExist:
             return HttpResponse(status=status.HTTP_400_BAD_REQUEST)
 
-    def get(self, request, id):
-        Students = self.get_object(id)
+    def get(self, request, pk):
+
+        Students = self.get_object(pk)
         serializer = StudentSerializers(Students)
         return Response(serializer.data)
 
-    def put(self, request, id):
-        Students = self.get_object(id)
+    def put(self, request, *args, **kwargs):
+        pk = self.kwargs.get('pk')
+        Students = self.get_object(pk)
         serializer = StudentSerializers(Students,data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
         return HttpResponse(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
 
-    def delete(self, request, id):
-        Students=self.get_object(id)
+    def delete(self, request, pk):
+        Students=self.get_object(pk)
         Students.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
