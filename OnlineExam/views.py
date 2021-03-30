@@ -31,8 +31,8 @@ class StudentList(APIView):
     def post(self,request,format=None):
         if request.method == 'POST':
             print(request.data)
-            #data = JSONParser().parse(request)
-            serializer = StudentSerializers(data=request.data)
+            data = JSONParser().parse(request)
+            serializer = StudentSerializers(data=data)
             #return Response(serializer.data, status=status.HTTP_201_CREATED)
             if serializer.is_valid():
                 serializer.save()
@@ -86,9 +86,6 @@ def Student(request):
     return render(request,'base.html')
 
 
-
-
-
 def Index(request):
     #template = loader.get_template("index.html")
     #return HttpResponse(template.render())
@@ -96,7 +93,7 @@ def Index(request):
 
 #to send mail response
 def mail(request):
-    sender = settings.EMAIL_HOST_USER
+    sender = settings.EMAIL_HOST_USER()
     subject = "Greetings"
     message = "Congratulations for your success"
     to      = "janardhanajohn98@gmail.com"
