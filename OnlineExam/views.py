@@ -93,12 +93,12 @@ def Index(request):
 
 #to send mail response
 def mail(request):
-    sender = settings.EMAIL_HOST_USER()
+    sender = settings.EMAIL_HOST_USER
     subject = "Greetings"
     message = "Congratulations for your success"
     to      = "janardhanajohn98@gmail.com"
     res     = send_mail(subject, message, sender, [to],fail_silently=True)
-    if(res == 1):
+    if(res == 0):
         msg = "Mail Sent Successfuly"
     else:
         msg = "Mail could not sent"
@@ -130,4 +130,5 @@ def registration(request):
     else:
         print("registration unsuccessful")
         return render(request,'Registration.html')
+
 
